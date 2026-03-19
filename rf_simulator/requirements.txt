@@ -1,0 +1,16 @@
+# rf_simulator — production dependencies
+#
+# Install:
+#   pip install -r requirements.txt
+#
+# Python >= 3.10 required  (uses `int | None` union syntax)
+# tkinter is part of the Python standard library but is NOT shipped
+# by default on some Linux distros. If `import tkinter` fails, install:
+#   Ubuntu/Debian : sudo apt install python3-tk
+#   Fedora/RHEL   : sudo dnf install python3-tkinter
+#   macOS (pyenv) : brew install python-tk
+#   Windows       : included with the official python.org installer
+
+numpy>=1.24,<3
+scipy>=1.10,<2
+matplotlib>=3.7,<4

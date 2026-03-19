@@ -1,0 +1,50 @@
+{
+  "link_budget": {
+    "p_tx_dbm":    30.0,
+    "g_tx_dbi":    15.0,
+    "loss_tx_db":   1.5,
+    "freq_mhz":  2400.0,
+    "dist_km":      5.0,
+    "misc_loss_db": 2.0,
+    "g_rx_dbi":     5.0,
+    "loss_rx_db":   0.5,
+    "nf_db":        5.0,
+    "bw_mhz":      20.0,
+    "snr_req_db":  10.0,
+    "temp_k":     290.0
+  },
+  "chain": {
+    "stages": [
+      {"name": "BPF",    "gain_db": -1.5, "nf_db": 1.5, "oip3_dbm": 35},
+      {"name": "LNA",    "gain_db": 18.0, "nf_db": 1.2, "oip3_dbm": 25},
+      {"name": "Mixer",  "gain_db": -6.0, "nf_db": 8.0, "oip3_dbm": 20},
+      {"name": "IF Amp", "gain_db": 20.0, "nf_db": 4.0, "oip3_dbm": 30},
+      {"name": "VGA",    "gain_db": 10.0, "nf_db": 6.0, "oip3_dbm": 28},
+      {"name": "ADC Dr", "gain_db":  8.0, "nf_db": 5.0, "oip3_dbm": 26}
+    ]
+  },
+  "path_loss": {
+    "freq_mhz":  1800.0,
+    "d_min_km":     0.1,
+    "d_max_km":    20.0,
+    "h_bs_m":      30.0,
+    "h_ms_m":       1.5
+  },
+  "monte_carlo": {
+    "mean_rx_dbm":     -70.0,
+    "sensitivity_dbm": -90.0,
+    "n_samples":      100000,
+    "k_factor_db":       6.0
+  },
+  "ber": {
+    "snr_min_db":  0.0,
+    "snr_max_db": 30.0
+  },
+  "sensitivity": {
+    "bw_min_mhz":   0.01,
+    "bw_max_mhz": 1000.0,
+    "snr_req_db":   10.0,
+    "temp_k":      290.0,
+    "nf_sweep": [2, 5, 8, 12, 18]
+  }
+}

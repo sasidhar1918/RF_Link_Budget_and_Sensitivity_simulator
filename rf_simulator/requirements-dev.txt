@@ -1,0 +1,11 @@
+# rf_simulator — development + testing dependencies
+#
+# Install:
+#   pip install -r requirements.txt -r requirements-dev.txt
+#
+# Then run tests with:
+#   pytest tests/
+
+-r requirements.txt
+
+pytest>=7.0
