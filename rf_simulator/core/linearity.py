@@ -27,7 +27,7 @@ def cascaded_oip3_dbm(oip3_list_dbm: list, gain_list_db: list) -> float:
     for i in range(n - 2, -1, -1):
         cum_gain_after[i] = cum_gain_after[i + 1] * gain_lin[i + 1]
 
-    inv_oip3 = sum(cum_gain_after[i] / oip3_lin[i] for i in range(n))
+    inv_oip3 = sum(1.0 / (oip3_lin[i] * cum_gain_after[i]) for i in range(n))
     return 10 * np.log10(1.0 / inv_oip3)
 
 

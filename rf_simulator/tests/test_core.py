@@ -122,6 +122,17 @@ class TestLinearity:
         good = cascaded_oip3_dbm([40.0, 40.0, 10.0], [10.0, 10.0, 10.0])
         assert good < 20.0
 
+    def test_oip3_two_stage_hand_calc(self):
+        """Stage 1: 10 dB gain, 20 dBm OIP3. Stage 2: 10 dB gain, 30 dBm OIP3.
+        1/OIP3 = 1/OIP3_2 + 1/(OIP3_1 * G2) = 1/1000 + 1/(100 * 10) per mW
+        OIP3 = 500 mW = 26.99 dBm."""
+        result = cascaded_oip3_dbm([20.0, 30.0], [10.0, 10.0])
+        assert result == pytest.approx(26.99, abs=0.01)
+
+    def test_oip3_never_exceeds_last_stage(self):
+        """The cascade cannot be better than the last stage's own OIP3."""
+        assert cascaded_oip3_dbm([20.0, 30.0], [10.0, 10.0]) <= 30.0
+
     def test_iip3_from_oip3(self):
         assert iip3_from_oip3_dbm(25.0, 20.0) == pytest.approx(5.0, abs=0.01)
 
